@@ -34,10 +34,17 @@ var userOperations = function() {
   }
 
   userObj.generateUsername = function() {
-      var username = "guest";
-      for(var i = 0; i < 5; i++) {
-        username += (Math.floor((Math.random() * 10)));
+      var username = "";
+      
+      var foundIndex = 0;
+      while(foundIndex !== -1) {
+        username = "guest";
+        for(var i = 0; i < 5; i++) {
+          username += (Math.floor((Math.random() * 10)));
+        }
+        foundIndex = connectedUsers.indexOf(username);
       }
+
       return username;
   };
 
